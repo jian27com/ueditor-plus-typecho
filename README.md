@@ -15,4 +15,6 @@ UEditor Plus 很美观 也不错，但是不支持typecho，所以我在这二�
 
 如果没有开启云储存 上传的图片就会自动到网站空间。反之亦然
 
+使用这个编辑器后 我相信这个一定是你一直在苦苦找寻的typecho 心目中的编辑器
+
 ![Image text](https://github.com/jian27com/ueditor-plus-typecho/blob/1d8d142ff463864d090a625df0f0a5d339fd4032/screenshot.jpg)
