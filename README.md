@@ -19,4 +19,4 @@ UEditor Plus 很美观 也不错，但是不支持typecho，所以我在这二�
 
 使用这个编辑器后 我相信这个一定是你一直在苦苦找寻的typecho 心目中的编辑器
 
-![Image text](https://github.com/jian27com/ueditor-plus-typecho/blob/1d8d142ff463864d090a625df0f0a5d339fd4032/screenshot.jpg)
+![Image text](https://www.jian27.com/zb_users/upload/2023/08/202308021690931581842703.jpg)
