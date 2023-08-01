@@ -14,3 +14,5 @@ UEditor Plus 很美观 也不错，但是不支持typecho，所以我在这二�
 使用方法很简单 下载后  改文件夹名为UEditor  上传到/usr/plugins/ 后台启用即可
 
 如果没有开启云储存 上传的图片就会自动到网站空间。反之亦然
+
+[screenshot.jpg](https://github.com/jian27com/ueditor-plus-typecho/blob/103b56312affc00a4f025f3d69ab9f2f086377a9/screenshot.jpg)https://github.com/jian27com/ueditor-plus-typecho/blob/103b56312affc00a4f025f3d69ab9f2f086377a9/screenshot.jpg
