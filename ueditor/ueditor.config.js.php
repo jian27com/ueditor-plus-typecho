@@ -49,7 +49,7 @@ $response->setContentType('text/javascript');
             'simpleupload', 'insertimage', 'emotion', 'scrawl', 'insertvideo', 'attachment', 'map', 'gmap', 'insertframe', 'insertcode', '|',
             'horizontal', 'date', 'time', 'spechars', 'wordimage', '|',
             'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', 'charts', '|',
-            'print', 'preview', 'searchreplace', 'help', 'wechat', 'hide'
+            'print', 'preview', 'searchreplace', 'help', 'wechat', 'hide', 'downn'
              ]]
         //当鼠标放在工具栏上时显示的tooltip提示,留空支持自动多语言配置，否则以配置值为准
         //,labelMap:{
@@ -365,7 +365,7 @@ $response->setContentType('text/javascript');
 		,outputXssFilter: true
 		// xss过滤白名单 名单来源: https://raw.githubusercontent.com/leizongmin/js-xss/master/lib/default.js
 		,whitList: {
-			a:      ['target', 'href', 'title', 'class', 'style'],
+			a:      ['target', 'href', 'title', 'class', 'style', 'id'],
 			abbr:   ['title', 'class', 'style'],
 			address: ['class', 'style'],
 			area:   ['shape', 'coords', 'href', 'alt'],
@@ -411,6 +411,7 @@ $response->setContentType('text/javascript');
 			p:      ['class', 'style'],
 			pre:    ['class', 'style'],
 			s:      [],
+            iframe: ['class' , 'style' , 'src', 'frameborder', 'width', 'height'],
 			section:[],
 			small:  [],
 			span:   ['class', 'style'],

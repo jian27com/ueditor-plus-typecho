@@ -740,6 +740,9 @@ div.edui-box {
 .edui-default  .edui-for-hide .edui-icon:before {
     content: "\e669";
 }
+.edui-default  .edui-for-downn .edui-icon:before {
+    content: "\e9f0";
+}
 
 .edui-default  .edui-for-print .edui-icon:before {
     content: "\e67a";

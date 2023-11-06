@@ -12,10 +12,8 @@
         uploadVideoList = [],
         isModifyUploadVideo = false,
         uploadFile;
-    var editorOpt = {};
 
     window.onload = function(){
-        editorOpt = editor.getOpt('videoConfig');
         $focus($G("videoUrl"));
         initTabs();
         initVideo();
@@ -40,20 +38,6 @@
                 }
             });
         }
-        if(!editorOpt.disableUpload){
-            $G('tabHeads').querySelector('[data-content-id="upload"]').style.display = 'inline-block';
-        }
-      if(!!editorOpt.selectCallback){
-        $G('videoSelect').style.display = 'inline-block';
-        domUtils.on($G('videoSelect'), "click", function (e) {
-          editorOpt.selectCallback(editor,function(info){
-            if(info){
-              $G('videoUrl').value = info.path;
-              createPreviewVideo(info.path);
-            }
-          });
-        });
-      }
     }
 
     function initVideo(){
@@ -181,28 +165,22 @@
         return property;
     }
     function convert_url(url){
-      if (!url) return '';
-      url = utils.trim(url)
-        .replace(/v\.youku\.com\/v_show\/id_([\w\-=]+)\.html/i, 'player.youku.com/embed/$1')
-        // .replace(/(www\.)?youtube\.com\/watch\?v=([\w\-]+)/i, "www.youtube.com/v/$2")
-        // .replace(/youtu.be\/(\w+)$/i, "www.youtube.com/v/$1")
-        //.replace(/www\.iqiyi\.com\/v_(\w+)\.html/i, "www.youtube.com/v/$1")
-        // .replace(/v\.ku6\.com\/.+\/([\w\.]+)\.html.*$/i, "player.ku6.com/refer/$1/v.swf")
-        // .replace(/www\.56\.com\/u\d+\/v_([\w\-]+)\.html/i, "player.56.com/v_$1.swf")
-        // .replace(/www.56.com\/w\d+\/play_album\-aid\-\d+_vid\-([^.]+)\.html/i, "player.56.com/v_$1.swf")
-        // .replace(/v\.pps\.tv\/play_([\w]+)\.html.*$/i, "player.pps.tv/player/sid/$1/v.swf")
-        // .replace(/www\.letv\.com\/ptv\/vplay\/([\d]+)\.html.*$/i, "i7.imgs.letv.com/player/swfPlayer.swf?id=$1&autoplay=0")
-        // .replace(/www\.tudou\.com\/programs\/view\/([\w\-]+)\/?/i, "www.tudou.com/v/$1")
-        // https://v.qq.com/x/cover/wagzbx91asjomnu/w05337nxfof.html
-        // https://v.qq.com/iframe/player.html?vid=w05337nxfof&tiny=0&auto=0
-        .replace(/v\.qq\.com\/x\/cover\/[\w]+\/([\w]+)\.html/i, "v.qq.com/iframe/player.html?vid=$1&tiny=0&auto=0")
-        .replace(/v\.qq\.com\/x\/page\/([\w]+)\.html/i, "v.qq.com/iframe/player.html?vid=$1&tiny=0&auto=0")
-        .replace(/www\.bilibili\.com\/video\/([a-zA-Z0-9]+)\/?.*$/i, "player.bilibili.com/player.html?bvid=$1")
-      // .replace(/v\.qq\.com\/cover\/[\w]+\/[\w]+\/([\w]+)\.html/i, "static.video.qq.com/TPout.swf?vid=$1")
-      // .replace(/v\.qq\.com\/.+[\?\&]vid=([^&]+).*$/i, "static.video.qq.com/TPout.swf?vid=$1")
-      // .replace(/my\.tv\.sohu\.com\/[\w]+\/[\d]+\/([\d]+)\.shtml.*$/i, "share.vrs.sohu.com/my/v.swf&id=$1")
-      ;
-      return url;
+        if ( !url ) return '';
+        url = utils.trim(url)
+            .replace(/v\.youku\.com\/v_show\/id_([\w\-=]+)\.html/i, 'player.youku.com/player.php/sid/$1/v.swf')
+            .replace(/(www\.)?youtube\.com\/watch\?v=([\w\-]+)/i, "www.youtube.com/v/$2")
+            .replace(/youtu.be\/(\w+)$/i, "www.youtube.com/v/$1")
+            .replace(/v\.ku6\.com\/.+\/([\w\.]+)\.html.*$/i, "player.ku6.com/refer/$1/v.swf")
+            .replace(/www\.56\.com\/u\d+\/v_([\w\-]+)\.html/i, "player.56.com/v_$1.swf")
+            .replace(/www.56.com\/w\d+\/play_album\-aid\-\d+_vid\-([^.]+)\.html/i, "player.56.com/v_$1.swf")
+            .replace(/v\.pps\.tv\/play_([\w]+)\.html.*$/i, "player.pps.tv/player/sid/$1/v.swf")
+            .replace(/www\.letv\.com\/ptv\/vplay\/([\d]+)\.html.*$/i, "i7.imgs.letv.com/player/swfPlayer.swf?id=$1&autoplay=0")
+            .replace(/www\.tudou\.com\/programs\/view\/([\w\-]+)\/?/i, "www.tudou.com/v/$1")
+            .replace(/v\.qq\.com\/cover\/[\w]+\/[\w]+\/([\w]+)\.html/i, "static.video.qq.com/TPout.swf?vid=$1")
+            .replace(/v\.qq\.com\/.+[\?\&]vid=([^&]+).*$/i, "static.video.qq.com/TPout.swf?vid=$1")
+            .replace(/my\.tv\.sohu\.com\/[\w]+\/[\d]+\/([\d]+)\.shtml.*$/i, "share.vrs.sohu.com/my/v.swf&id=$1");
+
+        return url;
     }
 
     /**
@@ -288,27 +266,19 @@
      * @param url
      */
     function createPreviewVideo(url){
-      if (!url)return;
+        if ( !url )return;
 
-      var conUrl = convert_url(url);
+        var conUrl = convert_url(url);
 
-      conUrl = utils.unhtml(conUrl);
+        conUrl = utils.unhtmlForUrl(conUrl);
 
-      // $G("preview").innerHTML = '<div class="previewMsg"><span>'+lang.urlError+'</span></div>'+
-      // '<embed class="previewVideo" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"' +
-      //     ' src="' + conUrl + '"' +
-      //     ' width="' + 420  + '"' +
-      //     ' height="' + 280  + '"' +
-      //     ' wmode="transparent" play="true" loop="false" menu="false" allowscriptaccess="never" allowfullscreen="true" >' +
-      // '</embed>';
-
-      $G("preview").innerHTML = '<div class="previewMsg"><span>' + lang.urlError + '</span></div>' +
-        '<iframe class="previewVideo" ' +
-        ' src="' + conUrl + '"' +
-        ' width="' + 420 + '"' +
-        ' height="' + 280 + '"' +
-        ' frameborder=0 allowfullscreen>' +
-        '</iframe>';
+        $G("preview").innerHTML = '<div class="previewMsg"><span>'+lang.urlError+'</span></div>'+
+        '<embed class="previewVideo" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"' +
+            ' src="' + conUrl + '"' +
+            ' width="' + 420  + '"' +
+            ' height="' + 280  + '"' +
+            ' wmode="transparent" play="true" loop="false" menu="false" allowscriptaccess="never" allowfullscreen="true" >' +
+        '</embed>';
     }
 
 
@@ -316,8 +286,8 @@
     function insertUpload(){
         var videoObjs=[],
             uploadDir = editor.getOpt('videoUrlPrefix'),
-            width = $G('upload_width').value || 420,
-            height = $G('upload_height').value || 280,
+            width = parseInt($G('upload_width').value, 10) || 420,
+            height = parseInt($G('upload_height').value, 10) || 280,
             align = findFocus("upload_alignment","name") || 'none';
         for(var key in uploadVideoList) {
             var file = uploadVideoList[key];
@@ -746,9 +716,7 @@
 
             uploader.on('uploadBeforeSend', function (file, data, header) {
                 //这里可以通过data对象添加POST参数
-                if (actionUrl.toLowerCase().indexOf('jsp') != -1) {
-                    header['X_Requested_With'] = 'XMLHttpRequest';
-                }
+                header['X_Requested_With'] = 'XMLHttpRequest';
             });
 
             uploader.on('uploadProgress', function (file, percentage) {

@@ -13398,8 +13398,10 @@ UE.plugins['insertcode'] = function() {
         redo:1,
         source:1,
         print:1,
+		drafts:1,
 		wechat:1,
 		hide:1,
+		downn:1,
         searchreplace:1,
         fullscreen:1,
         preview:1,
@@ -13758,6 +13760,14 @@ UE.commands['hide'] = {
  
     }
 };
+UE.commands['downn'] = { 
+    execCommand: function() {
+        this.execCommand('insertHtml', '<p><a id="download_link" class="download" href="下载url" rel="external" target="_blank" title="下载地址"><span><i class="iconfont icon-download"></i>点击下载</span></a></p>'); 
+        return true; 
+    }, 
+    queryCommandState: function() { } 
+};
+
 
 // plugins/anchor.js
 /**
@@ -22613,7 +22623,7 @@ UE.plugins['basestyle'] = function(){
                     node.tagName = 'strong';
                     break;
                 case 'i':
-                    node.tagName = 'em';
+                    node.tagName = 'i';
             }
         });
     });
@@ -27847,7 +27857,7 @@ UE.ui = baidu.editor.ui = {};
         'blockquote', 'pasteplain', 'pagebreak',
         'selectall', 'print','horizontal', 'removeformat', 'time', 'date', 'unlink',
         'insertparagraphbeforetable', 'insertrow', 'insertcol', 'mergeright', 'mergedown', 'deleterow',
-        'deletecol', 'splittorows', 'splittocols', 'splittocells', 'mergecells', 'deletetable', 'drafts', 'wechat', 'hide'];
+        'deletecol', 'splittorows', 'splittocols', 'splittocells', 'mergecells', 'deletetable', 'drafts', 'wechat', 'hide', 'downn'];
 
     for (var i = 0, ci; ci = btnCmds[i++];) {
         ci = ci.toLowerCase();
