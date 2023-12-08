@@ -22,10 +22,10 @@ UEditor Plus 很美观 也不错，但是不支持typecho，所以我在这二�
 20231106 更新，修正了一些小bug 具体我没记录。。。
 
 
-![Image text](https://www.jian27.com/zb_users/upload/2023/08/202308021690931757290247.png)
+![Image text](https://www.jian27.com/upload/2023/08/202308021690931757290247.png)
 
 ![Image text](https://helen.jian27.com/usr/uploads/2023/08/02/1690934138648228.jpg)
-![Image text](https://www.jian27.com/zb_users/upload/2023/08/202308031691024626674912.jpg)
+![Image text](https://www.jian27.com/upload/2023/08/202308031691024626674912.jpg)
 
 编辑器最后的2个按钮，是我根据自己的需求添加的，如果需要使用这2个按钮，需要安装对应的typecho插件
 
