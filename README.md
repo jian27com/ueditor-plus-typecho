@@ -21,15 +21,15 @@ UEditor Plus 很美观 也不错，但是不支持typecho，所以我在这二�
 
 20231106 更新，修正了一些小bug 具体我没记录。。。
 
-   [Image text](https://www.myhelen.cn/usr/uploads/2024/03/15/1710473236511285.png)
+(https://www.myhelen.cn/usr/uploads/2024/03/15/1710473236511285.png)
 
 
-    [Image text](https://www.myhelen.cn/usr/uploads/2024/03/15/1710473236662291.png)
+(https://www.myhelen.cn/usr/uploads/2024/03/15/1710473236662291.png)
 
 
-   [Image text](https://www.myhelen.cn/usr/uploads/2024/03/15/1710473236639868.png)
+(https://www.myhelen.cn/usr/uploads/2024/03/15/1710473236639868.png)
 
-    [Image text](https://www.myhelen.cn/usr/uploads/2024/03/15/1710473292705458.png)
+(https://www.myhelen.cn/usr/uploads/2024/03/15/1710473292705458.png)
 
 
 
