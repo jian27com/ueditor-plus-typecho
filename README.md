@@ -21,16 +21,16 @@ UEditor Plus 很美观 也不错，但是不支持typecho，所以我在这二�
 
 20231106 更新，修正了一些小bug 具体我没记录。。。
 
-
-    ![Image text](https://www.myhelen.cn/usr/uploads/2024/03/15/1710473236511285.png" title="1710473236511285.png)
-
-
-    ![Image text](/usr/uploads/2024/03/15/1710473236662291.png" title="1710473236662291.png)
+    ![Image text](https://www.myhelen.cn/usr/uploads/2024/03/15/1710473236511285.png)
 
 
-    ![Image text](/usr/uploads/2024/03/15/1710473236639868.png" title="1710473236639868.png)
+    ![Image text](https://www.myhelen.cn/usr/uploads/2024/03/15/1710473236662291.png)
 
-    ![Image text](/usr/uploads/2024/03/15/1710473292705458.png" title="1710473292705458.png" alt="PixPin_2024-03-15_11-28-03.png)
+
+    ![Image text](https://www.myhelen.cn/usr/uploads/2024/03/15/1710473236639868.png)
+
+    ![Image text](https://www.myhelen.cn/usr/uploads/2024/03/15/1710473292705458.png)
+
 
 
 编辑器最后的2个按钮，是我根据自己的需求添加的，如果需要使用这2个按钮，需要安装对应的typecho插件
