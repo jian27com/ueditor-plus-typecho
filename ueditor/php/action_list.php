@@ -5,10 +5,7 @@
  * Date: 14-04-09
  * Time: 上午10:17
  */
-include "Uploader2.class.php";
-
-$sitePath = substr( __TYPECHO_ROOT_DIR__, strlen($_SERVER['DOCUMENT_ROOT']));
-$sitePath = trim($sitePath, "\\/"). '/';
+include "Uploader.class.php";
 
 /* 判断类型 */
 switch ($_GET['action']) {
@@ -16,14 +13,14 @@ switch ($_GET['action']) {
     case 'listfile':
         $allowFiles = $CONFIG['fileManagerAllowFiles'];
         $listSize = $CONFIG['fileManagerListSize'];
-        $path = $sitePath. $CONFIG['fileManagerListPath'];
+        $path = $CONFIG['fileManagerListPath'];
         break;
     /* 列出图片 */
     case 'listimage':
     default:
         $allowFiles = $CONFIG['imageManagerAllowFiles'];
         $listSize = $CONFIG['imageManagerListSize'];
-        $path = $sitePath. $CONFIG['imageManagerListPath'];
+        $path = $CONFIG['imageManagerListPath'];
 }
 $allowFiles = substr(str_replace(".", "|", join("", $allowFiles)), 1);
 
@@ -46,13 +43,26 @@ if (!count($files)) {
 
 /* 获取指定范围的列表 */
 $len = count($files);
-for ($i = min($end, $len) - 1, $list = array(); $i < $len && $i >= 0 && $i >= $start; $i--){
+//for ($i = min($end, $len) - 1, $list = array(); $i < $len && $i >= 0 && $i >= $start; $i--){
+//    $list[] = $files[$i];
+//}
+
+// @author fedkey 全部展示
+// @date 2021-5-8
+for ($i = 0;$i<$len;$i++){
     $list[] = $files[$i];
 }
+
 //倒序
 //for ($i = $end, $list = array(); $i < $len && $i < $end; $i++){
 //    $list[] = $files[$i];
 //}
+//排序
+$c_times = array();
+foreach ($list as $k=>$v){
+    $c_times[] = $list[$k]['mtime'];
+}
+array_multisort($c_times,SORT_DESC,$list);
 
 /* 返回数据 */
 $result = json_encode(array(
